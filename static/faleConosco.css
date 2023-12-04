@@ -1,0 +1,46 @@
+body {
+    background-image: url('./public/Imagem_faleConosco.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: white;
+}
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin-top: 30px;
+}
+.footer-wave {
+    background: href=("./public/Imagem_rodape.png") bottom center no-repeat;
+    background-size: 100%;
+}
+.container-fluid bg-lightblue text-center p-5 {
+padding: 0;
+}
+.footer-bg {
+    background-image: url('./public/Imagem_rodape.svg'); /* Substitua 'sua_imagem.jpg' pelo caminho da sua imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white; /* Cor do texto no rodapé */
+    padding: 100px 70px;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+p2 {
+    color: white;
+}
+.imagem {
+    scale: 0.3;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    z-index: 100;
+} 
+.footer img {
+    width: 100px;
+}

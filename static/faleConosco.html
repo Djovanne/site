@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale conosco</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./faleConosco.css">
+</head>
+<body style="background-color: #ffc573;">
+</head>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">BLUETHUSP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Tela Inicial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="qualNossoProjeto.html">Qual nosso projeto?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dadosColetados.html">Dados Coletados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="expectativas.html">Expectativas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faleConosco.html">Fale Conosco</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Conteúdo do formulário de reclamações -->
+<div class="container mt-4">
+    <div class="row justify-content-end">
+        <div class="col-md-6">
+            <h1 class="text-center text-light">Formulário de Comentário</h1>
+            <p class="text-center text-light">Complete o formulário abaixo para nos enviar algum comentário.</p>
+
+            <form>
+                <div class="mb-3">
+                    <label for="nome" class="form-label text-light">Nome:</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Seu Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label text-light">Email:</label>
+                    <input type="email" class="form-control" id="email" placeholder="Seu Email">
+                </div>
+                <div class="mb-3">
+                    <label for="assunto" class="form-label text-light">Assunto:</label>
+                    <select class="form-select" id="assunto">
+                        <option value="opcao0"></option>
+                        <option value="opcao1">Informações adicionais</option>
+                        <option value="opcao2">Sugestões</option>
+                        <option value="opcao3">Reclamações</option>
+                        <option value="opcao4">Outros</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="comentario" class="form-label text-light">Comentário:</label>
+                    <textarea class="form-control" id="comentario" rows="4" placeholder="Seu comentário"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Reclamação</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Rodapé com informações sobre mobilidade urbana -->
+<footer class="footer-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+                <h3>Sobre Nós</h3> <br> 
+                <p2>Somos alunos do 2° semestre de engenharia elétrica na escola politécnica da USP. Esse é um projeto da disciplina de introdução a engenharia elétrica o qual tem o intuito de solucionar o problema de superlotação dos circulares da USP.</p2> <br> <br> <br> <br> <br>
+            </div>
+            <div class="col-md-6">
+                <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                <h3>Contato</h3> <br>
+                <p2><strong>Endereço:</strong> Av. Professor Luciano Gualberto 380, São Paulo, SP, Brazil, 05508-010</p2> <br> <br>
+                <p2><strong>Telefone:</strong> +55 (11) 3091-5221</p2> <br> <br>
+                <p2><strong>Email:</strong> contato@exemplo.com</p2> <br>
+            </div>
+        </div>
+    </div>
+    <img src="./public/Imagem_poli.png" class="img-fluid" style="max-width: 20%;" alt="imagem poli" >
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela inicial</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./index.css">
+</head>
+<body>
+</head>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="#">BLUETHUSP</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Tela Inicial</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="qualNossoProjeto.html">Qual nosso projeto?</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="dadosColetados.html">Dados Coletados</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="expectativas.html">Expectativas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="faleConosco.html">Fale Conosco</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Conteúdo da página com fundo azul claro -->
+<div class="container-fluid bg-lightblue text-center p-5">
+
+    <div class="bg-image">
+        <div class="overlay"></div>
+        <div class="text-container">
+            <div class="texto">
+            <h1>O problema da mobilidade <br> urbana na USP</h1>
+            <p> A escassez de dados precisos, falta de previsibilidade e informações em tempo real prejudica a experiência dos passageiros do sistema de ônibus circulares da USP. Para aprimorar o sistema e proporcionar uma experiência mais satisfatória, é de suma importância a disponibilização desses dados  em tempo real aos passageiros, permitindo-lhes fazer escolhas informadas e tornar o sistema de transporte mais eficiente e confortável.</p>
+            <a href="#mais_informacoes" class="btn btn-primary">Mais Informações</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Conteúdo adicional -->
+<div class="container-fluid" style="padding:0px; display:flex; justify-content: center;" id="mais_informacoes">
+    <div class="container text-center py-5" style="padding: 0px; margin: 0px;">
+        <div class="container mt-4">
+            <h1>OS DIVERSOS PROBLEMAS NESSA ÁREA</h1>
+            <br> <br> <br>
+            <div class="row">
+                <!-- Primeira Coluna -->
+                <div class="col-md-6 mb-4">
+                    <div class="mb-2"><strong>POUCOS ÔNIBUS 🚌</strong></div>
+                    <p>O remanejamento dos circulares da USP se faz da seguinte forma: <br>
+                        Circular 8012: 5 ônibus do tipo padron. <br>
+                        Circular 8022: 6 ônibus do tipo padron e 2 ônibus do tipo articulado <br>
+                        Circular 8032: 5 ônibus do tipo padron <br>
+             A pequena frota de ônibus transporta cerca de 28 mil passageiros por dia, o que gera atrasos perceptíveis, especialmente durante as horas de maior movimento. Esse alto volume de passageiros pode sobrecarregar o sistema e resultar em tempos de espera mais longos nos horários de maior demanda.
+             </p>
+                </div>
+
+                <!-- Segunda Coluna -->
+                <div class="col-md-6 mb-4">
+                    <div class="mb-2"><strong>POUCOS DADOS 🎲</strong></div>
+                    <p>A ausência de dados sobre os horários de partida, itinerários, disponibilidade de ônibus em tempo real dificulta os passageiros a planejarem suas viagens. A falta de informações sobre a capacidade de cada ônibus e a lotação, acarreta diversos problemas como superlotação e atrasos.</p>
+                </div>
+
+                <!-- Terceira Coluna -->
+                <div class="col-md-6 mb-4">
+                    <div class="mb-2"><strong>POUCA PREVISIBILIDADE ⏱️</strong></div>
+                    <p>A falta de  previsibilidade é um dos principais problemas decorrentes  da falta de dados. Os passageiros vivem a incerteza sobre qual circular embarcar, o tempo de espera e duração da viagem, o que aumenta o nível de estresse e desconforto para os usuários.</p>
+                </div>
+
+                <!-- Quarta Coluna -->
+                <div class="col-md-6 mb-4">
+                    <div class="mb-2"><strong>POUCO CONFORTO 🥵</strong></div>
+                    <p>A ausência de dados em tempo real sobre a lotação dos ônibus pode levar os passageiros a embarcar em veículos já lotados. Isso resulta em uma experiência de viagem desconfortável, pelo alto número de pessoas em um espaço limitado. </p>
+                </div>
+
+                <a href="qualNossoProjeto.html" class="btn btn-primary">Qual nosso projeto?</a>
+                <img src="./public/Imagem_problemaTexto.svg" class="img-fluid" style="transform: scale(1.2); position: center; z-index: -5; margin-top: -600px;" alt="imagem fundo" >
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Rodapé com informações sobre mobilidade urbana -->
+<footer class="footer-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <br> <br> <br> <br> <br> <br> <br> <br> <br> 
+                <h3>Sobre Nós</h3> <br> 
+                <p2>Somos alunos do 2° semestre de engenharia elétrica na escola politécnica da USP. Esse é um projeto da disciplina de introdução a engenharia elétrica o qual tem o intuito de solucionar o problema de superlotação dos circulares da USP.</p2> <br> <br> <br> <br> <br>
+            </div>
+            <div class="col-md-6">
+                <br> <br> <br> <br> <br> <br> <br> <br> <br>
+                <h3>Contato</h3> <br>
+                <p2><strong>Endereço:</strong> Av. Professor Luciano Gualberto 380, São Paulo, SP, Brazil, 05508-010</p2> <br> <br>
+                <p2><strong>Telefone:</strong> +55 (11) 3091-5221</p2> <br> <br>
+                <p2><strong>Email:</strong> contato@exemplo.com</p2> <br>
+            </div>
+        </div>
+    </div>
+    <img src="./public/Imagem_poli.png" class="img-fluid" style="max-width: 20%;" alt="imagem poli" >
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

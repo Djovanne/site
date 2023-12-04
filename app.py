@@ -57,5 +57,10 @@ def list_entries():
     except Exception as e:
         return str(e)
 
+@app.route('/site', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+
 if __name__ == '__main__':
-    app.run(host = '192.168.0.242', debug=False, port= '80')
+    app.run(host = '127.0.0.1', debug=False, port= '8080')

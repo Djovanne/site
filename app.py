@@ -1,5 +1,9 @@
 from flask import Flask, request, render_template
 import mysql.connector
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
+import datetime
 
 app = Flask(__name__)
 ultima_qtd_passageiros = 0
@@ -75,6 +79,51 @@ def list_entries():
 @app.route('/site', methods=['GET'])
 def index():
     return render_template('index.html')
+
+@app.route('/grafico', methods=['GET'])
+def grafico():
+    # Connect to MySQL
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+
+    # Fetch entries from the database
+    cursor.execute("SELECT QTD_PASSAGEIROS, DT FROM LOGS ORDER BY DT DESC LIMIT 5")
+    
+    #x_values = [1, 2, 3, 4, 5]
+    #y_values = [10, 12, 5, 8, 16]
+
+    x_values = []
+    y_values = []
+
+    linhas = cursor.fetchall()
+    for l in linhas:
+        y = int(l[0])
+        x = l[1]
+        
+        x_values.append('{}:{}:{}'.format(x.hour, x.minute, x.second))
+        y_values.append(y)
+
+    print('x: {}'.format(x_values))
+    print('y: {}'.format(y_values))
+
+    # Close the connection
+    cursor.close()
+
+    plt.plot(x_values, y_values)
+    plt.xlabel('Horário')
+    plt.ylabel('Qtd. Passageiros')
+    plt.title('Qtd. Usuários X Horário')
+
+    # Save the plot to a BytesIO object
+    img = BytesIO()
+    plt.savefig(img, format='png')
+    img.seek(0)
+    plt.close()
+
+    # Embed the plot in the HTML template
+    plot_url = base64.b64encode(img.getvalue()).decode('utf-8')
+    return render_template("grafico.html", plot_url=plot_url)
+
 
 @app.route('/expectativas', methods=['GET'])
 def expectativas():

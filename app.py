@@ -13,6 +13,20 @@ db_config = {
     'database': 'brabozo',
 }
 
+def on_startup():
+    connection = mysql.connector.connect(**db_config)
+    cursor = connection.cursor()
+    cursor.execute("SELECT QTD_PASSAGEIROS FROM LOGS WHERE ID = (SELECT MAX(ID) FROM LOGS)")
+
+    qtd_passageiros = cursor.fetchall()[0][0]
+    qtd_passageiros = float(qtd_passageiros)
+    
+    cursor.close()
+
+    global ultima_qtd_passageiros
+    ultima_qtd_passageiros = qtd_passageiros
+    print('on_startup concluido. qtd_passageiros: {}'.format(ultima_qtd_passageiros))
+
 @app.route('/api/log/<int:qtd_passageiros>', methods=['GET'])
 def save_to_database(qtd_passageiros):
     try:
@@ -64,9 +78,24 @@ def index():
 
 @app.route('/expectativas', methods=['GET'])
 def expectativas():
-    return render_template('expectativas.html', densidade_media=10, velocidade_media=20)
+
+    global ultima_qtd_passageiros
+    area_sala = 30
+    massa_onibus_kg = 16000
+    massa_passageiro_kg = 65
+    velocidade_media_onibus_kh = 35
+
+    densidade_media = ultima_qtd_passageiros / area_sala
+    velocidade_media = (velocidade_media_onibus_kh * massa_onibus_kg) / (massa_onibus_kg + (ultima_qtd_passageiros * massa_passageiro_kg))
+    
+    densidade_media = f"{densidade_media:.3f}"
+    velocidade_media =  f"{velocidade_media:.3f}"
+
+    return render_template('expectativas.html', 
+                           densidade_media=densidade_media, velocidade_media=velocidade_media)
 
 
 if __name__ == '__main__':
+    on_startup()
     #app.run(host = '143.198.186.226', debug=False, port= '8080')
     app.run(host = 'localhost', debug=False, port= '8080')

@@ -46,13 +46,13 @@
     <div class="container mt-4">
         <h1>EXPECTATIVAS</h1>
         <p>Nessa aba pode-se encontrar algumas informações calculadas com os dados coletados sobre os ônibus da USP em nosso projeto.</p>
-
+        <br>
         <h1>DADOS INTERESSANTES</h1>
         <p> Número de pessoas usando o ônibus… <br> </p>
         <p> Semanalmente: 196.000.<br> </p>
         <p> Mensalmente: 840.000.<br> </p>
         <p> Anualmente: 10.220.000.<br> </p>
-        <br> <br> <br> <br>
+        <br>
 
         <h1>PREVISÕES NOS ÔNIBUS</h1>
         <p>Horário de pico, densidade média e velocidade média do ônibus:</p>        
@@ -60,7 +60,7 @@
         <div class="form-group">
             <select class="form-control" id="seletorOpcoes">
                 <option value="opcao0"></option>
-                <option value="opcaoSala">Sala</option>
+                <option value="opcaoSala" selected>Sala</option>
                 <option value="opcao1">8012-10</option>
                 <option value="opcao2">8012-10</option>
                 <option value="opcao3">8012-10</option>
@@ -85,8 +85,12 @@
 
         <p> Densidade média: {{densidade_media}} <br> </p>
         <p> Velocidade média: {{velocidade_media}}<br> </p>
-        <br> <br> <br> <br>
 
+        <div>
+            <img src="data:image/png;base64,{{ plot_url }}" alt="Qtd. Usuários X Horário">
+        </div>
+
+        <br>
         <h1>PROBLEMAS OBSERVADOS: <br> </h1>
         <p> Linhas que talvez não estejam atendendo a demanda: <br> </p>
         <a href="reclamacoes.html" class="btn btn-primary">Faça sua reclamação aqui</a>

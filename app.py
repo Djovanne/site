@@ -1,7 +1,8 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_from_directory, redirect
 import mysql.connector
 import matplotlib.pyplot as plt
 from io import BytesIO
+import os
 import base64
 import datetime
 
@@ -55,7 +56,7 @@ def save_to_database(qtd_passageiros):
     except Exception as e:
         return str(e)
     
-@app.route('/', methods=['GET'])
+@app.route('/logs', methods=['GET'])
 def list_entries():
     try:
         # Connect to MySQL
@@ -76,18 +77,19 @@ def list_entries():
     except Exception as e:
         return str(e)
 
-@app.route('/site', methods=['GET'])
+@app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    #static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
+    #return send_from_directory(static_folder, 'index.html')
+    return redirect("./static/index.html")
 
-@app.route('/grafico', methods=['GET'])
-def grafico():
+def get_grafico_plot_url():
     # Connect to MySQL
     connection = mysql.connector.connect(**db_config)
     cursor = connection.cursor()
 
     # Fetch entries from the database
-    cursor.execute("SELECT QTD_PASSAGEIROS, DT FROM LOGS ORDER BY DT DESC LIMIT 5")
+    cursor.execute("SELECT QTD_PASSAGEIROS, DT FROM LOGS ORDER BY DT DESC LIMIT 20")
     
     #x_values = [1, 2, 3, 4, 5]
     #y_values = [10, 12, 5, 8, 16]
@@ -103,26 +105,33 @@ def grafico():
         x_values.append('{}:{}:{}'.format(x.hour, x.minute, x.second))
         y_values.append(y)
 
-    print('x: {}'.format(x_values))
-    print('y: {}'.format(y_values))
+    #print('x: {}'.format(x_values))
+    #print('y: {}'.format(y_values))
 
     # Close the connection
     cursor.close()
 
-    plt.plot(x_values, y_values)
+    #plt.tight_layout()
+    plt.figure(figsize=(16, 4))
+    plt.plot(x_values, y_values, linewidth=1)
+    plt.xticks(rotation=45)
     plt.xlabel('Horário')
     plt.ylabel('Qtd. Passageiros')
     plt.title('Qtd. Usuários X Horário')
+    
 
     # Save the plot to a BytesIO object
     img = BytesIO()
-    plt.savefig(img, format='png')
+    plt.savefig(img, format='png', bbox_inches='tight')
     img.seek(0)
     plt.close()
 
     # Embed the plot in the HTML template
     plot_url = base64.b64encode(img.getvalue()).decode('utf-8')
-    return render_template("grafico.html", plot_url=plot_url)
+    #print('plot_url: {}'.format(plot_url))
+
+    return plot_url
+    #return render_template("grafico.html", plot_url=plot_url)
 
 
 @app.route('/expectativas', methods=['GET'])
@@ -140,8 +149,12 @@ def expectativas():
     densidade_media = f"{densidade_media:.3f}"
     velocidade_media =  f"{velocidade_media:.3f}"
 
+    plot_url = get_grafico_plot_url()
+
     return render_template('expectativas.html', 
-                           densidade_media=densidade_media, velocidade_media=velocidade_media)
+                           densidade_media=densidade_media, 
+                           velocidade_media=velocidade_media,
+                           plot_url=plot_url)
 
 
 if __name__ == '__main__':

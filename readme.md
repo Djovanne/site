@@ -17,3 +17,7 @@ CREATE USER 'brabozodb'@'%' IDENTIFIED BY 'a3cb636e07a424c1d8d2507a5a9ade1e38d78
 ALTER USER 'brabozodb'@'179.208.52.241' IDENTIFIED BY 'a3cb636e07a424c1d8d2507a5a9ade1e38d78aa1eed40a3a';
 
 GRANT ALL PRIVILEGES ON brabozo.* TO 'brabozodb'@'%';
+
+http://143.198.186.226:8080/api/log/?
+http://143.198.186.226:8080/logs
+http://143.198.186.226:8080

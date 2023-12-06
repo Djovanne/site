@@ -105,6 +105,9 @@ def get_grafico_plot_url():
         x_values.append('{}:{}:{}'.format(x.hour, x.minute, x.second))
         y_values.append(y)
 
+    x_values.reverse()
+    y_values.reverse()
+
     #print('x: {}'.format(x_values))
     #print('y: {}'.format(y_values))
 
@@ -160,4 +163,4 @@ def expectativas():
 if __name__ == '__main__':
     on_startup()
     #app.run(host = '143.198.186.226', debug=False, port= '8080')
-    app.run(host = 'localhost', debug=False, port= '8080')
+    app.run(host = '0.0.0.0', debug=False, port= '8080')

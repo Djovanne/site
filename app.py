@@ -6,9 +6,10 @@ ultima_qtd_passageiros = 0
 
 # MySQL configuration
 db_config = {
-    'host': 'localhost',
-    'user': 'root',
-    'password': 'root',
+    'host': '143.198.186.226',
+    #'user': 'root',
+    'user': 'brabozodb',
+    'password': 'a3cb636e07a424c1d8d2507a5a9ade1e38d78aa1eed40a3a',
     'database': 'brabozo',
 }
 
@@ -25,7 +26,7 @@ def save_to_database(qtd_passageiros):
         cursor = connection.cursor()
 
         # Insert the variable into the database
-        cursor.execute("INSERT INTO logs (id_onibus, qtd_passageiros, dt) VALUES (1, {}, now())".format(qtd_passageiros))
+        cursor.execute("INSERT INTO LOGS (id_onibus, qtd_passageiros, dt) VALUES (1, {}, now())".format(qtd_passageiros))
 
         # Commit changes and close the connection
         connection.commit()
@@ -44,7 +45,7 @@ def list_entries():
         cursor = connection.cursor()
 
         # Fetch entries from the database
-        cursor.execute("SELECT * FROM logs")
+        cursor.execute("SELECT * FROM LOGS")
         entries = cursor.fetchall()
 
         # Close the connection
@@ -61,6 +62,11 @@ def list_entries():
 def index():
     return render_template('index.html')
 
+@app.route('/expectativas', methods=['GET'])
+def expectativas():
+    return render_template('expectativas.html', densidade_media=10, velocidade_media=20)
+
 
 if __name__ == '__main__':
-    app.run(host = '127.0.0.1', debug=False, port= '8080')
+    #app.run(host = '143.198.186.226', debug=False, port= '8080')
+    app.run(host = 'localhost', debug=False, port= '8080')

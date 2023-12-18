@@ -1,0 +1,61 @@
+.bg-image {
+    background-image: url('./public/Imagem_problema.jpg'); /* Substitua 'sua_imagem.jpg' pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    padding: 0;
+}
+.overlay {
+    background-color: rgba(255, 255, 255, 0.7); /* Cor de fundo branca com transparência */
+    height: 100vh;
+    opacity: 60%;
+}
+.text-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+h1, p {
+    color: #000000;
+}
+.container-fluid bg-lightblue text-center p-5 {
+    padding: 0;
+}
+.footer-bg {
+    background-image: url('./public/Imagem_rodape.svg'); /* Substitua 'sua_imagem.jpg' pelo caminho da sua imagem */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white; /* Cor do texto no rodapé */
+    padding: 100px 70px;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+p2 {
+    color: white;
+}
+.imagem {
+    scale: 0.3;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    z-index: 100;
+} 
+.footer img {
+    width: 100px;
+}
+.imagem {
+    max-width: 80%;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.img-fluid {
+    scale: 1.1;
+    z-index: -3;
+}
